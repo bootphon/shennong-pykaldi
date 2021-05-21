@@ -1,6 +1,8 @@
 <p align="center"><img src="docs/_static/pykaldi-logo-dark.png" width="40%"/></p>
 
 --------------------------------------------------------------------------------
+**THIS IS A FORK OF THE ORIGINAL [PYKALDI REPO](https://github.com/pykaldi/pykaldi) WHICH IS NO MORE MAINTAINED**
+--------------------------------------------------------------------------------
 
 [![Build Status]][Travis]
 
