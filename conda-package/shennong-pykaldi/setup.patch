@@ -1,0 +1,31 @@
+--- setup.py	2018-11-12 15:41:37.144575731 -0800
++++ setup_new.py	2018-11-18 17:32:03.086923814 -0800
+@@ -34,6 +34,8 @@
+ KALDI_DIR = os.getenv('KALDI_DIR')
+ CWD = os.path.dirname(os.path.abspath(__file__))
+ BUILD_DIR = os.path.join(CWD, 'build')
++PYTHON_LIBRARY = os.getenv('PYTHON_LIBRARY')
++PYTHON_INC_DIR = os.getenv('PYTHON_INC_DIR')
+ 
+ if not PYCLIF:
+     PYCLIF = os.path.join(sys.prefix, 'bin/clif-matcher')
+@@ -147,6 +149,8 @@
+     print("CLIF_CXX_FLAGS:", CLIF_CXX_FLAGS)
+     print("LD_FLAGS:", LD_FLAGS)
+     print("LD_LIBS:", LD_LIBS)
++    print("PYTHON_LIB:", PYTHON_LIBRARY)
++    print("PYTHON_INC_DIR:", PYTHON_INC_DIR)
+     print("BUILD_DIR:", BUILD_DIR)
+     print("CUDA:", CUDA)
+     if CUDA:
+@@ -210,6 +214,10 @@
+                       '-DTFRNNLM=TRUE' if KALDI_TFRNNLM else '-DTFRNNLM=FALSE',
+                       '-DDEBUG=TRUE' if DEBUG else '-DDEBUG=FALSE']
+ 
++        if PYTHON_LIBRARY:
++            CMAKE_ARGS +=['-DPYTHON_LIBRARY=' + PYTHON_LIBRARY,
++                          '-DPYTHON_INCLUDE_DIR=' + PYTHON_INC_DIR]
++
+         if CUDA:
+             CMAKE_ARGS +=['-DCUDA_LD_FLAGS=' + CUDA_LD_FLAGS,
+                           '-DCUDA_LD_LIBS=' + CUDA_LD_LIBS]

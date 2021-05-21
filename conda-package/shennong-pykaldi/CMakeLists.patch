@@ -1,0 +1,16 @@
+--- CMakeLists.txt	2018-09-11 17:09:03.633244630 -0700
++++ CMakeLists2.txt	2018-09-11 17:10:31.149719965 -0700
+@@ -54,10 +54,11 @@
+   endif(NOT KALDI_DIR)
+ endif(NOT KALDI_DIR)
+ 
++set(SP_DIR "$ENV{SP_DIR}")
+ set(KALDI_SRC_DIR "${KALDI_DIR}/src")
+ set(KALDI_TOOLS_DIR "${KALDI_DIR}/tools")
+-set(KALDI_LIBRARIES_DIR "${KALDI_SRC_DIR}/lib")
+-set(OPENFST_LIB_DIR "${KALDI_TOOLS_DIR}/openfst/lib")
++set(KALDI_LIBRARIES_DIR "${SP_DIR}/kaldi/lib")
++set(OPENFST_LIB_DIR "${SP_DIR}/kaldi/lib")
+ 
+ ####################################################################################################
+ #  Set compiler and linker flags

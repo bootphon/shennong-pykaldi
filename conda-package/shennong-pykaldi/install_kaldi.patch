@@ -1,0 +1,11 @@
+--- tools/install_kaldi.sh	2018-09-14 15:11:32.167536852 -0700
++++ tools/install_kaldi2.sh	2018-09-14 15:13:12.050927142 -0700
+@@ -26,7 +26,7 @@
+ make -j4
+ 
+ cd ../src
+-./configure --shared
++./configure --shared --mathlib=OPENBLAS --openblas-root=${PREFIX} --use-cuda=no
+ make clean -j && make depend -j && make -j4
+ 
+ echo "Done installing Kaldi."
